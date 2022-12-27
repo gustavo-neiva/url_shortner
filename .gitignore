@@ -5,33 +5,34 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-web-app/.bundle
+./.bundle
 
 # Ignore the default SQLite database.
-web-app/db/*.sqlite3
-web-app/db/*.sqlite3-journal
-web-app/db/*.sqlite3-*
+./db/*.sqlite3
+./db/*.sqlite3-journal
+./db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
-web-app/log/*
-web-app/tmp/*
+/log/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
 
 # Ignore uploaded files in development.
-web-app/storage/*
+./storage/*
 !/storage/.keep
 
-web-app/public/assets
+./public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-web-app/config/master.key
+./config/master.key
 
-web-app/public/packs
-web-app/public/packs-test
-web-app/node_modules
-web-app/yarn-error.log
-web-app/yarn-debug.log*
-web-app/.yarn-integrity
+./public/packs
+./public/packs-test
+./node_modules
+./yarn-error.log
+./yarn-debug.log*
+./.yarn-integrity
 /.vscode
+
