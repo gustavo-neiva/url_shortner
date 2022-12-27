@@ -23,20 +23,13 @@ describe UrlEnconderDecoder::Bijective do
 
     context "When you insert an integer it returns a encoded string" do
       let(:integer) { 42 }
-      let(:encoded_string) { "Q" }
-
-      before(:each) do
-        allow(encoder).to receive(:encode).with(integer)
-      end
+      let(:encoded_string) { "q" }
 
       it "It returns the right encoded string" do
-        expect(encoder).to receive(:encode).with(integer)
+        encoded = encoder.encode(integer)
+        expect(encoded).to eq(encoded_string)
       end
 
-      after(:each) do
-        encoder.encode(integer)
-      end
-      
     end
   end
 end
