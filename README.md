@@ -1,5 +1,12 @@
 # Url Shortener
 
+With this app, you can quickly and easily create short links to share with friends, family, and colleagues.
+
+## Features
+
+- Create short URLs with custom aliases
+- Redirect to URL when fed with custom alias
+
 ## API
 
 ## **Create URL**
