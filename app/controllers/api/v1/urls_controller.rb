@@ -20,24 +20,14 @@ module Api
       # POST /urls
       def create
         begin
-          validate_url()
-          if Url.exists?(url: params[:url])
-            render json: { short_url: }
-          else
-          end
-
-        #that should be a unique kind of error class for this business logic
-        rescue StandardError => e
+          base_url = request.base_url
+          use_case = UrlShortener::UseCases::FindOrCreateEncodedUrl.build
+          response = use_case.execute(url: url_params[:url], base_url: base_url)
+          render json: response, status: :created
+        rescue UrlShortener::Exceptions::InvalidUrlException => e
           Rails.logger.error(e.message)
-          Rails.logger.error(e.backtrace.join("\n"))
           render json: { message: e.message }, status: :bad_request
         end
-
-        # if @url.save
-        #   render json: @url, status: :created, location: @url
-        # else
-        #   render json: @url.errors, status: :unprocessable_entity
-        # end
       end
 
       # PATCH/PUT /urls/1
@@ -62,11 +52,7 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def url_params
-          params.require(:url).permit(:url, :short_url)
-        end
-
-        def validate_url
-          raise StandardError.new("Invalid URL") unless params[:url] =~ /\A#{URI::regexp}\z/
+          params.require(:url).permit(:url)
         end
     end
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe UrlEnconderDecoder::Bijective do
+describe UrlShortener::Services::UrlEncoderDecoder do
   describe "#encode" do
 
     let(:url_id) { 42 }

@@ -1504,3 +1504,426 @@ Processing by Api::V1::UrlsController#create as JSON
 Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 57)
 
 
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-27 21:03:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+  [1m[36mUrl Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/urls_controller.rb:25:in `create'
+Completed 204 No Content in 8ms (ActiveRecord: 3.3ms | Allocations: 4346)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-27 23:43:40 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+Completed 500 Internal Server Error in 3ms (Allocations: 2510)
+
+
+  
+NameError (uninitialized constant Api::V1::UrlsController::UrlShortener
+
+        rescue UrlShortener::Exceptions::InvalidUrlException => e
+               ^^^^^^^^^^^^):
+  
+app/controllers/api/v1/urls_controller.rb:26:in `rescue in create'
+app/controllers/api/v1/urls_controller.rb:21:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-27 23:44:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 4633)
+
+
+  
+NameError (uninitialized constant Api::V1::UrlsController::UrlShortener
+
+        rescue UrlShortener::Exceptions::InvalidUrlException => e
+               ^^^^^^^^^^^^):
+  
+app/controllers/api/v1/urls_controller.rb:26:in `rescue in create'
+app/controllers/api/v1/urls_controller.rb:21:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:02:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 4597)
+
+
+  
+NameError (uninitialized constant Api::V1::UrlsController::UrlShortener
+
+        rescue UrlShortener::Exceptions::InvalidUrlException => e
+               ^^^^^^^^^^^^):
+  
+app/controllers/api/v1/urls_controller.rb:26:in `rescue in create'
+app/controllers/api/v1/urls_controller.rb:21:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:04:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x0000000109f9a830>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 3353)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0; required keywords: url, base_url)):
+  
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:15:in `execute'
+app/controllers/api/v1/urls_controller.rb:24:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:05:22 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x000000010a4439b8>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1382)
+
+
+  
+SyntaxError (/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/domain/url.rb:19: syntax error, unexpected local variable or method, expecting '}'
+          short_url: self.short_url
+          ^~~~~~~~~
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/domain/url.rb:20: syntax error, unexpected '}', expecting `end'
+        }
+        ^
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/domain/url.rb:31: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/application/url_shortener/domain/url.rb:19: syntax error, unexpected local variable or method, expecting '}'
+app/application/url_shortener/domain/url.rb:20: syntax error, unexpected '}', expecting `end'
+app/application/url_shortener/domain/url.rb:31: syntax error, unexpected end-of-input, expecting `end'
+app/application/url_shortener/domain/url.rb:19: syntax error, unexpected local variable or method, expecting '}'
+app/application/url_shortener/domain/url.rb:20: syntax error, unexpected '}', expecting `end'
+app/application/url_shortener/domain/url.rb:31: syntax error, unexpected end-of-input, expecting `end'
+app/application/url_shortener/repositories/all_urls.rb:46:in `valid?'
+app/application/url_shortener/repositories/all_urls.rb:6:in `find'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:16:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:06:18 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x0000000109f11e68>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2229)
+
+
+  
+NoMethodError (undefined method `long_url' for nil:NilClass
+
+          url_model = Url.find_by_url(@url.long_url)
+                                          ^^^^^^^^^):
+  
+app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:16:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:07:09 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x000000010a3990d0>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+  [1m[36mUrl Load (1.0ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.9ms | Allocations: 4460)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+            id: url_model.id,
+                         ^^^):
+  
+app/application/url_shortener/repositories/all_urls.rb:9:in `find'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:16:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+  [1m[36mUrl Load (1.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  [1m[36mUrl Load (1.9ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  [1m[36mUrl Load (0.9ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:09:33 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 931)
+
+
+  
+SyntaxError (/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/repositories/all_urls.rb:49: syntax error, unexpected `end', expecting end-of-input):
+  
+app/application/url_shortener/repositories/all_urls.rb:49: syntax error, unexpected `end', expecting end-of-input
+app/application/url_shortener/repositories/all_urls.rb:49: syntax error, unexpected `end', expecting end-of-input
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:5:in `build'
+app/controllers/api/v1/urls_controller.rb:24:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:09:55 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x000000010a3127b0>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+  [1m[36mUrl Load (0.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Create (4.4ms)[0m  [1m[32mINSERT INTO "urls" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.youtube.com"], ["short_url", nil], ["created_at", "2022-12-28 03:09:55.379080"], ["updated_at", "2022-12-28 03:09:55.379080"]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls"[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `update'
+  [1m[36mUrl Update (0.8ms)[0m  [1m[33mUPDATE "urls" SET "short_url" = $1, "updated_at" = $2 WHERE "urls"."id" = $3[0m  [["short_url", "http://localhost:3000/b"], ["updated_at", "2022-12-28 03:09:55.385579"], ["id", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `update'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:38:in `transaction'
+Completed 201 Created in 26ms (Views: 0.1ms | ActiveRecord: 16.2ms | Allocations: 9972)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:10:20 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>"https://www.youtube.com"}
+[31mUnpermitted parameter: :format. Context: { controller: Api::V1::UrlsController, action: create, request: #<ActionDispatch::Request:0x000000010a51b0e8>, params: {"url"=>"https://www.youtube.com", "format"=>"json", "controller"=>"api/v1/urls", "action"=>"create"} }[0m
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 771)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:11:06 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 3770)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:11:11 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 2ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 678)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:11:12 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 654)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:11:13 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 645)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:11:17 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.google.com"}}
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.google.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "urls" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", nil], ["created_at", "2022-12-28 03:11:17.520314"], ["updated_at", "2022-12-28 03:11:17.520314"]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls"[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `update'
+  [1m[36mUrl Update (14.5ms)[0m  [1m[33mUPDATE "urls" SET "id" = $1, "url" = $2, "short_url" = $3, "updated_at" = $4 WHERE "urls"."id" = $5[0m  [["id", 2], ["url", "https://www.google.com"], ["short_url", "http://localhost:3000/c"], ["updated_at", "2022-12-28 03:11:17.521883"], ["id", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:38:in `transaction'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 15.2ms | Allocations: 4321)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "urls_pkey"
+DETAIL:  Key (id)=(2) already exists.
+):
+  
+app/application/url_shortener/repositories/all_urls.rb:30:in `update'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:23:in `block in execute'
+app/application/url_shortener/repositories/all_urls.rb:39:in `block in transaction'
+app/application/url_shortener/repositories/all_urls.rb:38:in `transaction'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:19:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls"[0m
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:13:09 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.google.com"}}
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.google.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "urls" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", nil], ["created_at", "2022-12-28 03:13:09.408847"], ["updated_at", "2022-12-28 03:13:09.408847"]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:21:in `create'
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls"[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:31:in `update'
+  [1m[36mUrl Update (0.8ms)[0m  [1m[33mUPDATE "urls" SET "id" = $1, "url" = $2, "short_url" = $3, "updated_at" = $4 WHERE "urls"."id" = $5[0m  [["id", 3], ["url", "https://www.google.com"], ["short_url", "http://localhost:3000/d"], ["updated_at", "2022-12-28 03:13:09.411043"], ["id", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:31:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:39:in `transaction'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 9.7ms | Allocations: 7508)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "urls_pkey"
+DETAIL:  Key (id)=(3) already exists.
+):
+  
+app/application/url_shortener/repositories/all_urls.rb:31:in `update'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:23:in `block in execute'
+app/application/url_shortener/repositories/all_urls.rb:40:in `block in transaction'
+app/application/url_shortener/repositories/all_urls.rb:39:in `transaction'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:19:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:13:15 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.2ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:7:in `find'
+Completed 201 Created in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 820)
+
+
+  [1m[36mUrl Load (0.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUrl Load (0.8ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUrl Load (10.3ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "www.youtube.com"], ["LIMIT", 1]]
+  [1m[36mUrl Load (1.0ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "www.youtube.com"], ["LIMIT", 1]]
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:20:13 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3417)
+
+
+  
+ArgumentError (missing keyword: :encoder):
+  
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:9:in `initialize'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:6:in `new'
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:6:in `build'
+app/controllers/api/v1/urls_controller.rb:24:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:20:34 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.youtube.com"}}
+  [1m[36mUrl Load (0.4ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.youtube.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:16:in `find'
+Completed 201 Created in 12ms (Views: 0.1ms | ActiveRecord: 4.8ms | Allocations: 6674)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:20:38 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.google.com"}}
+  [1m[36mUrl Load (0.3ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.google.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:16:in `find'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `create'
+  [1m[36mUrl Create (1.3ms)[0m  [1m[32mINSERT INTO "urls" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.google.com"], ["short_url", nil], ["created_at", "2022-12-28 03:20:38.998691"], ["updated_at", "2022-12-28 03:20:38.998691"]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `create'
+  [1m[36mUrl Update (0.3ms)[0m  [1m[33mUPDATE "urls" SET "short_url" = $1, "updated_at" = $2 WHERE "urls"."id" = $3[0m  [["short_url", "http://localhost:3000/e"], ["updated_at", "2022-12-28 03:20:39.001378"], ["id", 4]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:37:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:44:in `transaction'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.6ms | Allocations: 5156)
+
+
+  
+NoMethodError (undefined method `to_hash' for true:TrueClass
+
+        return url_domain_object.to_hash
+                                ^^^^^^^^
+Did you mean?  to_s):
+  
+app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:22:in `execute'
+app/controllers/api/v1/urls_controller.rb:25:in `create'
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:21:43 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.google.com"}}
+  [1m[36mUrl Load (0.1ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.google.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:16:in `find'
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 3905)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:21:50 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"https://www.tchoze.com"}}
+  [1m[36mUrl Load (0.3ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."url" = $1 LIMIT $2[0m  [["url", "https://www.tchoze.com"], ["LIMIT", 1]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:16:in `find'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `create'
+  [1m[36mUrl Create (0.2ms)[0m  [1m[32mINSERT INTO "urls" ("url", "short_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://www.tchoze.com"], ["short_url", nil], ["created_at", "2022-12-28 03:21:50.439789"], ["updated_at", "2022-12-28 03:21:50.439789"]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:30:in `create'
+  [1m[36mUrl Update (0.3ms)[0m  [1m[33mUPDATE "urls" SET "short_url" = $1, "updated_at" = $2 WHERE "urls"."id" = $3[0m  [["short_url", "http://localhost:3000/f"], ["updated_at", "2022-12-28 03:21:50.443971"], ["id", 5]]
+  ↳ app/application/url_shortener/repositories/all_urls.rb:39:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/application/url_shortener/repositories/all_urls.rb:48:in `transaction'
+Completed 201 Created in 19ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 3395)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:21:58 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"banana"}}
+banana is an invalid Url
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/domain/url.rb:25:in `is_url?'
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/repositories/all_urls.rb:62:in `valid?'
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/repositories/all_urls.rb:15:in `find'
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/application/url_shortener/use_cases/find_or_create_encoded_url.rb:14:in `execute'
+/Users/gustavo-neiva/Code/gustavo-neiva/bluecoding/app/controllers/api/v1/urls_controller.rb:25:in `create'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/abstract_controller/base.rb:215:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/rendering.rb:53:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/callbacks.rb:107:in `run_callbacks'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/abstract_controller/callbacks.rb:233:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/notifications.rb:206:in `block in instrument'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/notifications.rb:206:in `instrument'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/abstract_controller/base.rb:151:in `process'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal.rb:188:in `dispatch'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal.rb:251:in `dispatch'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/journey/router.rb:32:in `each'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/journey/router.rb:32:in `serve'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/routing/route_set.rb:852:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/rack-2.2.5/lib/rack/etag.rb:27:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/rack-2.2.5/lib/rack/conditional_get.rb:40:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/rack-2.2.5/lib/rack/head.rb:12:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activerecord-7.0.4/lib/active_record/migration.rb:603:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/callbacks.rb:99:in `run_callbacks'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/rack/logger.rb:40:in `call_app'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/rack/logger.rb:25:in `block in call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/tagged_logging.rb:99:in `block in tagged'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/tagged_logging.rb:37:in `tagged'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/tagged_logging.rb:99:in `tagged'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/rack/logger.rb:25:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/rack-2.2.5/lib/rack/runtime.rb:22:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/static.rb:23:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/rack-2.2.5/lib/rack/sendfile.rb:110:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/engine.rb:530:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/Users/gustavo-neiva/.asdf/installs/ruby/3.1.0/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 443)
+
+
+Started POST "/api/v1/urls" for 127.0.0.1 at 2022-12-28 00:22:48 -0300
+Processing by Api::V1::UrlsController#create as JSON
+  Parameters: {"url"=>{"url"=>"banana"}}
+banana is an invalid Url
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1323)
+
+
