@@ -23,7 +23,7 @@ module UrlShortener
       def decode(s)
         # based on base2dec() in Tcl translation 
         # at http://rosettacode.org/wiki/Non-decimal_radices/Convert#Ruby
-        raise TypeError("Not a string") unless i.is_a? String
+        raise TypeError("Not a string") unless s.is_a? String
         i = 0
         base = ALPHABET.length
         s.each_char { |c| i = i * base + ALPHABET.index(c) }

@@ -1,23 +1,23 @@
-require 'uri'
-
 module Api
   module V1
     class UrlsController < BaseController
-      before_action :set_url, only: %i[ show update destroy ]
-
-      # GET /urls
       def index
         @urls = Url.all
 
         render json: @urls
       end
 
-      # GET /urls/1
       def show
-        render json: @url
+        begin
+          use_case = UrlShortener::UseCases::DecodeSlug.build
+          long_url = use_case.execute(slug: slug_params[:slug])
+          redirect_to long_url, allow_other_host: true
+        rescue UrlShortener::Exceptions::UrlDoesNotExist => e
+          Rails.logger.error(e.message)
+          render json: { message: e.message }, status: :not_found
+        end
       end
 
-      # POST /urls
       def create
         begin
           base_url = request.base_url
@@ -30,29 +30,14 @@ module Api
         end
       end
 
-      # PATCH/PUT /urls/1
-      def update
-        if @url.update(url_params)
-          render json: @url
-        else
-          render json: @url.errors, status: :unprocessable_entity
-        end
-      end
-
-      # DELETE /urls/1
-      def destroy
-        @url.destroy
-      end
-
       private
-        # Use callbacks to share common setup or constraints between actions.
-        def set_url
-          @url = Url.find(params[:id])
-        end
 
-        # Only allow a list of trusted parameters through.
         def url_params
           params.require(:url).permit(:url)
+        end
+
+        def slug_params
+          params.permit(:slug)
         end
     end
   end

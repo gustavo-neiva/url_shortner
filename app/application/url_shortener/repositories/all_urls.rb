@@ -15,7 +15,6 @@ module UrlShortener
           valid?(long_url: long_url)
           url_model = Url.find_by_url!(long_url)
           page_title = get_page_title(url_model)
-          print(page_title)
           url = UrlShortener::Domain::Url.new(
             id: url_model.id,
             short_url: url_model.short_url,
@@ -52,6 +51,16 @@ module UrlShortener
         Page.create!(title: title, url_id: url_model.id)
       end
 
+      def find_by_slug(slug:)
+        id = decode(slug: slug)
+        begin
+          url_model = Url.find_by_id!(id)
+          url_model.url
+        rescue ActiveRecord::RecordNotFound => e
+          raise UrlShortener::Exceptions::UrlDoesNotExist.new("Url not found")
+        end
+      end
+
       def transaction
         Url.transaction do
           yield
@@ -67,6 +76,10 @@ module UrlShortener
       def encode(id:, base_url:)
         encoded_string = @encoder.encode(id)
         short_url = "#{base_url}/#{encoded_string}"
+      end
+
+      def decode(slug:)
+        @encoder.decode(slug)
       end
 
       def valid?(long_url:)

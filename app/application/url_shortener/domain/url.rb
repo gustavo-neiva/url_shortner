@@ -27,6 +27,16 @@ module UrlShortener
         end
       end
 
+      def self.url_scheme(long_url)
+        uri = URI.parse(long_url)
+        url = long_url
+
+        if(!uri.scheme)
+          url = "https://#{url}"
+        end
+
+        url
+      end
     end
   end
 end
