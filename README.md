@@ -1,24 +1,42 @@
-# README
+# Url Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## API
 
-Things you may want to cover:
+## **Create URL**
 
-* Ruby version
+Shortens url
 
-* System dependencies
+- **URL**
+  /api/v1/user
+- **Method:**
+  `POST`
+- **Body**
+  ```
+  {
+    "url": {
+      "url": "www.youtube.com",
+    }
+  }
+  ```
+- **Success Response:**
+  - **Code:** 200
+    **Content:**
+    ```
+    {
+      "long_url": "www.youtube.com",
+      "short_url": "http://localhost:3000/k"
+    }
+    ```
+- **Error Response:**
+  - **Code:** 400 BAD REQUEST
+    **Content:** `{ "message": "banana is an invalid Url" }`
 
-* Configuration
+## **Redirect**
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **URL**
+  /k
+- **Method:**
+  `Get`
+- **Success Response:**
+  - **Code:** 302
+    Redirects to "www.youtube.com"
