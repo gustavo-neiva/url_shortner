@@ -2,12 +2,16 @@
 
 With this app, you can quickly and easily create short links to share with friends, family, and colleagues.
 
+This app receives an url, checks for its validity, saves in the database, convert the id into an unique hash and returns the original and the shorten url version.
+
+When the users go to the shorten version, it redirects to the original long url.
+
+After the app shortens the URL, it sends a job to scrape the original long url and saves the page title's.
+
 ## Features
 
 - Create short URLs with custom aliases
 - Redirect to URL when fed with custom alias
-
-## API
 
 ## **Create URL**
 
