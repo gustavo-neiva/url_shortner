@@ -1,12 +1,13 @@
 module UrlShortener
   module Domain
     class Url
-      attr_reader :id, :long_url, :short_url
+      attr_reader :id, :long_url, :short_url, :page_title
     
-      def initialize(id:, long_url:, short_url: nil)
+      def initialize(id:, long_url:, short_url: nil, page_title: nil)
         @id = id
         @short_url = short_url
         @long_url = long_url
+        @page_title = page_title
       end
 
       def short_url!(short_url)

@@ -23,7 +23,7 @@ describe UrlShortener::Services::UrlEncoderDecoder do
 
     context "When you insert an integer it returns a encoded string" do
       let(:integer) { 42 }
-      let(:encoded_string) { "q" }
+      let(:encoded_string) { "Q" }
 
       it "It returns the right encoded string" do
         encoded = encoder.encode(integer)
