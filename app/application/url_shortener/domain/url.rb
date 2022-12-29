@@ -15,10 +15,11 @@ module UrlShortener
       end
 
       def to_hash
-        {
-          long_url: self.long_url,
-          short_url: self.short_url
-        }
+        hash = {}
+        hash[:long_url] ||= self.long_url
+        hash[:short_url] ||= self.short_url
+        hash[:page_title] ||= self.page_title
+        hash
       end
 
       def self.is_url?(parameter)

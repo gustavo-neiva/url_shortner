@@ -3,11 +3,13 @@ module UrlShortener
     class AllUrls
       def self.build
         encoder = UrlShortener::Services::UrlEncoderDecoder.new
-        new(encoder: encoder)
+        urls_factory = UrlShortener::Factories::UrlsFactory.new
+        new(encoder: encoder, urls_factory: urls_factory)
       end
 
-      def initialize(encoder:)
+      def initialize(encoder:, urls_factory:)
         @encoder = encoder
+        @urls_factory = urls_factory
       end
 
       def find(long_url:)
@@ -59,6 +61,11 @@ module UrlShortener
         rescue ActiveRecord::RecordNotFound => e
           raise UrlShortener::Exceptions::UrlDoesNotExist.new("Url not found")
         end
+      end
+
+      def list_urls
+        urls_models = Url.last_100()
+        @urls_factory.build_urls(urls_models)
       end
 
       def transaction

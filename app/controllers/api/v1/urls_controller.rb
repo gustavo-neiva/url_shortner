@@ -2,9 +2,14 @@ module Api
   module V1
     class UrlsController < BaseController
       def index
-        @urls = Url.all
-
-        render json: @urls
+        begin
+          use_case = UrlShortener::UseCases::ListUrls.build
+          response = use_case.execute()
+          render json: response, status: :ok
+        rescue StandardError => e
+          Rails.logger.error(e.message)
+          render json: { message: e.message }, status: :bad_request
+        end
       end
 
       def show
